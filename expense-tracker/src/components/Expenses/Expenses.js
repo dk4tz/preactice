@@ -1,4 +1,5 @@
 import ExpenseItem from "./ExpenseItem";
+import Card from "../UI/Card";
 
 function Expenses(props){
     const items = props.items;
@@ -13,9 +14,9 @@ function Expenses(props){
         />
     ))
     return(
-        <div>
+        <Card>
             {expenses}
-        </div>
+        </Card>
     )
 }
 
