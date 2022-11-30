@@ -91,3 +91,9 @@
     -- useEffect() runs AFTER every component render cycle
     -- useEffect() also can return a function. This function is called the "clean up" function and will run before the useState function runs (except for the first time ;))
 
+# What is "useReducer()?"
+    - Sometimes you have a more complex state than you can manage with useState()...
+        -- e.g. multiple states, state updates that depend on other states, multiple ways to update state, etc.
+    - useReducer() is a more powerful replacement to useState()
+
+
