@@ -96,4 +96,23 @@
         -- e.g. multiple states, state updates that depend on other states, multiple ways to update state, etc.
     - useReducer() is a more powerful replacement to useState()
 
+    *** const [state, dispatchFn] = useReducer(reducerFn, initialState, initialFn); ***
+
+        -- state = the state snapshot used in the component re-render / re-evaluation cycle
+        -- dispatchFn = a function that triggers a state update
+        -- reducerFn = a function that dispatchFn triggers --> it receives the latest state snapshot and should return the new, updated state (prevState, action) => newState
+        --  initialState = the initial state 
+        -- initialFun = a function to programmatically initialize the state (e.g. if initial state is result of https:// request)
+
+    - useState() vs. useReducer()
+        -- generally, you'll know to use useReducer() because the state becomes so big and cumbersome that using useState() creates all sorts of unintended behaviors / bugs
+        -- useState()
+            ** the main state management tool --> always start w this
+            ** for independent pieces of state / data
+            ** if state updates are easy and limited to a few kinds of updates
+        -- useReducer()
+            ** great if you need more power --> more state updating logic
+            ** if you have a ton of state updating logic in the component function --> good to move into reducer function
+            ** if you have related pieces of state / data
+            ** if you more complex state updates (e.g. different cases, actions) 
 
