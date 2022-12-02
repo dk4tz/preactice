@@ -116,3 +116,19 @@
             ** if you have related pieces of state / data
             ** if you more complex state updates (e.g. different cases, actions) 
 
+# useContext() !!
+    - allows you to pass state from one component to another without having to pass props up and down the component tree
+    - see /simple-login/store/auth-context.js 
+    - limitations:
+        -- context is not optimized for high frequency changes --> more into Redux later
+        -- props are still best for most reusable components (e.g. Button -> login/logout). Short prop chains are OK
+
+# Rules of Hooks
+    - only call react hooks in react functions (aka a function that returns JSX code)
+        -- React component functions
+        -- Custom hooks (we'll get there)
+    - only call react hooks at the TOP LEVEL  (e.g. you can't use a hook within a hook, or a hook in an if statement)
+        -- don't call in nested functions 
+        -- don't call them in block statements
+    - for useEffect(), make sure you always add everything you refer to in useEffect as a dependency
+
