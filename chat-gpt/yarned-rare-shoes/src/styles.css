@@ -1,0 +1,33 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+h1 {
+  @apply text-4xl font-bold;
+}
+
+h2 {
+  @apply text-lg font-bold;
+}
+
+img {
+  @apply w-full;
+}
+
+.container {
+  @apply mx-auto p-4;
+}
+
+.grid {
+  @apply grid grid-cols-1 lg:grid-cols-3 gap-4;
+}
+
+.shoe {
+  @apply bg-white rounded-lg shadow-lg p-4;
+}
+
+p {
+  @apply text-gray-700 mt-1;
+}
