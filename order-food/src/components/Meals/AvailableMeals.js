@@ -1,14 +1,25 @@
 import React from "react";
+import Card from "../UI/Card";
+import MealItem from "./MealItem/MealItem";
 
 import styles from "./AvailableMeals.module.css";
 import DUMMY_DONUTS from "../../data/dummy-donuts";
 
 const AvailableMeals = () => {
-  const donutsList = DUMMY_DONUTS.map((donut) => <li>{donut.name}</li>);
+  const donutsList = DUMMY_DONUTS.map((donut) => (
+    <MealItem
+      key={donut.id}
+      name={donut.name}
+      description={donut.description}
+      price={donut.price}
+    />
+  ));
 
   return (
     <section className={styles.donuts}>
-      <ul>{donutsList}</ul>
+      <Card>
+        <ul>{donutsList}</ul>
+      </Card>
     </section>
   );
 };
