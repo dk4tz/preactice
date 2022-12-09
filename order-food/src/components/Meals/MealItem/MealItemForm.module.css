@@ -1,6 +1,10 @@
 .form {
     text-align: right;
     display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
   }
   
   .form button {

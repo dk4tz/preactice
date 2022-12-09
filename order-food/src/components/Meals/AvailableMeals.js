@@ -8,6 +8,7 @@ import DUMMY_DONUTS from "../../data/dummy-donuts";
 const AvailableMeals = () => {
   const donutsList = DUMMY_DONUTS.map((donut) => (
     <MealItem
+      id={donut.id}
       key={donut.id}
       name={donut.name}
       description={donut.description}
