@@ -8,8 +8,8 @@ const Header = (props) => {
   return (
     <Fragment>
       <header className={styles.header}>
-        <h1>David's Dope Donuts</h1>
-        <HeaderCartButton />
+        <h1>D.D.D.D.</h1>
+        <HeaderCartButton onClick={props.onShowCart}/>
       </header>
       <div className={styles['main-image']}>
         <img src={donutImage} alt="delicious donuts in a row" />

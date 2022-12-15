@@ -5,9 +5,9 @@ import styles from './MealsSummary.module.css'
 const MealsSummary = (props) => {
     return(
         <section className={styles.summary}>
-            <h2>Delicious Donuts by David</h2>
+            <h2>David's Diggity Dank Donuts</h2>
             <p>
-                Choose your favorite donut from our selection of dope donuts.
+                Choose your favorite donut from our selection.
             </p>
             <p>
                 All our donuts are fcking dope.
