@@ -132,3 +132,15 @@
         -- don't call them in block statements
     - for useEffect(), make sure you always add everything you refer to in useEffect as a dependency
 
+# React - Under the Hood
+    - React.js = "a JavaScript library for building user interfaces"
+        -- Components = the basic building blocks 
+        -- Props = data from parent components
+        -- State = internal data
+        -- Context = component-wide data
+    - ReactDOM = "React.js uses this as an interface to the web/browser"
+        -- what the user actually sees
+        -- React.js reevaluates components whenever props, state, or context changes
+        -- ReactDOM only executes changes to the real DOM for *differences between evaluations* ("Virtual DOM diffing")
+        -- ReactDOM only touches the difference between the evaluation (e.g. adding a <p> tag)
+
