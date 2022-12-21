@@ -7,4 +7,4 @@ const DummyOutput = (props) => {
     )
 };
 
-export default React.memo(DummyOutput);
+export default DummyOutput;
