@@ -143,4 +143,8 @@
         -- React.js reevaluates components whenever props, state, or context changes
         -- ReactDOM only executes changes to the real DOM for *differences between evaluations* ("Virtual DOM diffing")
         -- ReactDOM only touches the difference between the evaluation (e.g. adding a <p> tag)
+    - Rendering in React.js
+        -- export default React.memo(YourComponent); = save the props of YourComponent and only re-render it if there are diffs with the new props
+            * using it is a trade-off between storage props & making comparison vs. re-rending the component every time the parent changes *
+            * great if you can find a place way up the component tree to apply this, so all the children components will not re-render *
 
