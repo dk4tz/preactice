@@ -1,7 +1,7 @@
 const typeDefs = `#graphql
   "Query to get space cats for homepage"
   type Query {
-    spaceCats: [SpaceCat]
+    getSpaceCat: [SpaceCat!]
   }
   "An intergalactic catagion"
   type SpaceCat {

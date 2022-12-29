@@ -4,17 +4,17 @@ import { addMocksToSchema } from '@graphql-tools/mock';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import { typeDefs } from './schema.js';
 
-const mockData = {
+const mocks = {
   SpaceCat: () => ({
     id: () => 'kitty_1',
     name: () => 'Buzz Cat',
     age: () => 50,
     equipment: () => {
-      return {
+      return [{
         id: 'helmet_1',
         size: 5,
         photo: 'cool pic',
-      };
+      }];
     },
     thumbnail: 'https://catpics.com/',
   }),
@@ -22,16 +22,14 @@ const mockData = {
 
 const resolvers = {
   Query: {
-    spaceCats: () => SpaceCat,
+    getSpaceCat: () => SpaceCat,
   },
 };
 
 const server = new ApolloServer({
-  // addMocksToSchema accepts a schema instance and provides
-  // mocked data for each field in the schema
   schema: addMocksToSchema({
     schema: makeExecutableSchema({ typeDefs, resolvers }),
-    mockData,
+    mocks,
   }),
 });
 
