@@ -147,4 +147,12 @@
         -- export default React.memo(YourComponent); = save the props of YourComponent and only re-render it if there are diffs with the new props
             * using it is a trade-off between storage props & making comparison vs. re-rending the component every time the parent changes *
             * great if you can find a place way up the component tree to apply this, so all the children components will not re-render *
+    - Summary:
+        -- Components have one job - return JSX
+        -- Whenever you change state (props, state, context), React re-evaluates the component where you changed state, which basically means your function runs again
+        -- React takes results of latest evaluation and compares it to previous evaluation --> hands off any differences to ReactDOM, which updates the DOM in the browser 
+        -- You can use React.memo to prevent unnecessary re-rendering of components that have not changed
+        -- BUT, if you create a function within a React.memo component function, memo's won't work because React thinks that the function has changed due to how JavaScript evaluates reference values vs. primitive values (1 === 1 but obj1 !== obj2)
+        -- This is why you use useCallback(), which tells React to store a function and not re-create it when the surrounding function runs again so long as certain dependencies don't change
+        -- ** You can also use the hook "useMemo()" to 'memo-ize' a function within a component! This optimizes performance if there is a particularly performance-intensive operation (e.g. sorting) within a component that React must re-render, for example, if its props change
 
