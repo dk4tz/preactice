@@ -156,3 +156,9 @@
         -- This is why you use useCallback(), which tells React to store a function and not re-create it when the surrounding function runs again so long as certain dependencies don't change
         -- ** You can also use the hook "useMemo()" to 'memo-ize' a function within a component! This optimizes performance if there is a particularly performance-intensive operation (e.g. sorting) within a component that React must re-render, for example, if its props change
 
+# Custom Hooks
+    - What are custom hooks?
+        -- React functions that let you outsource *stateful* logic into *re-usable* functions
+        -- Unlike regular functions, custom hooks can use other React hooks and React state
+        -- Mechanism for re-using functions, BUT you can use React hooks and other hooks inside of them
+
