@@ -215,3 +215,8 @@
         -- Import { Provider } from 'react-redux' into the app's index.js
         -- Import the store from '/store/index.js'
         -- NEVER EVER EVER mutate the state. Always return a new state object
+    - Async & Redux
+        -- Reducers must be pure, side-effect free, synchronous functions
+        -- Two options:
+            * Put code directly into component with useEffect()
+            * Inside action creators --> write our own action creators
