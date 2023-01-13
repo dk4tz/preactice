@@ -23,6 +23,7 @@
   display: block;
   width: 20rem;
   margin: auto;
+  margin-bottom: 0.5rem;
   border-radius: 4px;
   padding: 0.25rem;
   border: 1px solid #ccc;

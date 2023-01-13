@@ -1,21 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-const counterReducer = (state = {}, action) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return { counter: state.counter + 1 };
-    case 'DECREMENT':
-      return { counter: state.counter - 1 };
-    default:
-      return state;
-  }
-};
-
-const initialState = { counter: 0 };
+import counterSlice from './counter';
+import authSlice from './auth';
 
 const store = configureStore({
-  reducer: counterReducer,
-  preloadedState: initialState,
+  reducer: { counter: counterSlice.reducer, auth: authSlice.reducer },
 });
 
 export default store;

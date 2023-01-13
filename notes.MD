@@ -214,3 +214,4 @@
         -- Initialize redux store in /store/index.js
         -- Import { Provider } from 'react-redux' into the app's index.js
         -- Import the store from '/store/index.js'
+        -- NEVER EVER EVER mutate the state. Always return a new state object
