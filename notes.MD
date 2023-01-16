@@ -220,3 +220,10 @@
         -- Two options:
             * Put code directly into component with useEffect()
             * Inside action creators --> write our own action creators
+        -- NEVER RUN ANY ASYNC CODES IN A REDUCER (MEGA BAD)
+    - FAT reducers vs. FAT components vs. FAT actions:
+        -- synchronous, side-effect free code should go into REDUCERS (avoiding components and action creators)
+        -- asynchronous code, side effects should go into COMPONENTS
+        -- What's a THUNK?
+            * a function that delays an action until later
+            * an action creator function that DOES NOT return the action itself, but ANOTHER function which eventually returns the action
