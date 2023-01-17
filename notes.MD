@@ -227,3 +227,15 @@
         -- What's a THUNK?
             * a function that delays an action until later
             * an action creator function that DOES NOT return the action itself, but ANOTHER function which eventually returns the action
+
+# Routing
+
+    - Different URL paths load different content on the screen
+    - Changing URLs traditionally means loading different data from the server(s). This can lead to undesirable UX
+    - When building complex UI's, we typically build single page applications (SPAs)
+        -- Only one HTML request & response
+        -- We can add client-side React code that watches the URL and changes the UI
+    - Introducing react-router:
+        -- Step 1: define routes we want to support and what components should render beneath those routes
+        -- Step 2: activate router and load definitions
+        -- Step 3: make sure we have all components we want to load and provide the user a means to navigate between pages
