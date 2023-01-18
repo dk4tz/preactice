@@ -1,11 +1,1 @@
-{
-  "events": [
-    {
-      "id": "e1",
-      "title": "A dummy event",
-      "date": "2023-02-22",
-      "image": "https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg",
-      "description": "Join this amazing event and connect with fellow developers."
-    }
-  ]
-}
+{"events":[{"title":"aaaa","image":"https://regularlabs.com/images/extensions/dummycontent/banner.png","date":"2023-01-05","description":"ttttt","id":"30c18dd8-6393-44ef-a79a-92fc4520cc18"}]}

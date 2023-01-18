@@ -239,3 +239,6 @@
         -- Step 1: define routes we want to support and what components should render beneath those routes
         -- Step 2: activate router and load definitions
         -- Step 3: make sure we have all components we want to load and provide the user a means to navigate between pages
+    - Random usage notes:
+        -- useFetcher() = use this to trigger an action or a loader without navigating to that route (e.g. fetcher.Form, fetcher.data)
+        -- defer = use this to display a page before all components have loaded. accepts a dictionary of mapped promises. must use with <Await/> (react-router) and <Suspense> (react)
