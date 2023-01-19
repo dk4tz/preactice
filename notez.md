@@ -242,3 +242,38 @@
     - Random usage notes:
         -- useFetcher() = use this to trigger an action or a loader without navigating to that route (e.g. fetcher.Form, fetcher.data)
         -- defer = use this to display a page before all components have loaded. accepts a dictionary of mapped promises. must use with <Await/> (react-router) and <Suspense> (react)
+
+# Authentication
+
+    - Different patterns for authentication:
+        -- Server-side sessions:
+            * Store a unique identifier on the server
+            * Map the identifier to a speciic client, and send the same identifier back to the client
+            * Client sends the identifier back to the server in future requests
+        -- Authentication tokens:
+            * Create (but don't store) a unique "permission" token on the server
+            * Send the token to the client
+            * Client sends the token back to the server in future requests
+        -- Protected routes
+            * You can protect certain routes (e.g. only accessible if logged in), by incorporating a check for the auth token in the route's loader function
+            * If no token, return a redirect
+        -- Expiring tokens
+            * To erase an expired token from local storage, you can create a useEffect() in the root component, and then use the useSubmit hook from react-router within a setTimout function to invoke the '/logout' path's method after the timeout expires
+                ** Better than a redirect because the user might no longer be on your page !!
+            * Also make sure you log expiration time in local storage at the point in time when you receive the token. This ensures that if the user navigates away from the page, and then comes back, you don't reset the timer !!
+                ** You can create a utility function to get the token's useful duration by comparing the current time with the expiration time. This is what you should compare against in setTimeout()
+
+# Deployment
+
+    - Lazy Loading:
+        -- Load code only when it's needed
+        -- Must remove traditional import statement and use the import() function for loaders, actions, and other functions
+            * import() returns a module object which you can access using module.nameOfFunction
+        -- BUT, for JSX code, you can't do that... you need to use:
+            * lazy() from 'react'
+            * and <Suspense><YourLazyComponent/></Suspense>
+                ** <Suspense fallback={<p>Waiting...</p>}> --> you must specify a fallback HTML elment or JSX code
+    - Deploying:
+        -- Use 'react-scripts build' ('react-scripts' is a npm package) to bundle the web app
+        -- A React Single Page App is a "static website" --> only consists of html, css, and javascript --> all code lives in the browser... don't need a server for front-end
+        -- IMPORTANT - make sure you configure your server to direct all domain requests to index.html --> single page web app. Otherwise it won't work if you go to a specific URL path
