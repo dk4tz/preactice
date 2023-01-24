@@ -1,22 +1,17 @@
 import React from 'react';
 
 import ToDos from './components/ToDos';
+import NewToDo from './components/NewToDo';
 
 import './App.css';
-
-const TO_DO_LIST: string[] = [
-  "Drop it like it's hot",
-  'Smoov on the beat',
-  'Chill w dre',
-];
+import ToDosContextProvider from './store/todos-context';
 
 function App() {
   return (
-    <div>
-      <ToDos items={TO_DO_LIST}>
-        <div>'Hello child'</div>
-      </ToDos>
-    </div>
+    <ToDosContextProvider>
+      <NewToDo />
+      <ToDos />
+    </ToDosContextProvider>
   );
 }
 
