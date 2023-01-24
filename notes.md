@@ -277,3 +277,20 @@
         -- Use 'react-scripts build' ('react-scripts' is a npm package) to bundle the web app
         -- A React Single Page App is a "static website" --> only consists of html, css, and javascript --> all code lives in the browser... don't need a server for front-end
         -- IMPORTANT - make sure you configure your server to direct all domain requests to index.html --> single page web app. Otherwise it won't work if you go to a specific URL path
+
+# Next.js
+
+    - What is it?
+        -- A full-stack framework for ReactJS
+        -- Framework for building large-scale React apps for production
+        -- Solves common problems and makes building React apps easier (e.g. routing, ...)
+    - Key features:
+        -- Built-in Server-Side Rendering: pre-render react pages and components on the server.
+            * Improves SEO beecause the HTML is already loaded for the search crawlers
+            * Improves end-user experience because pages are already loaded
+        -- File-based Routing: gets rid of in-code route definition. You have a special "pages" folder in Next.js that defines the routes your application supports
+            * Define pages and routes with files and folders instead of code
+            * Less code, less work, highly understanadble
+        -- Full-stack capabilities: makes it easy for us to write back-end code
+            * Easily add server-side code to Next/React apps
+            * Storing data, getting data, and authentication can be added to React projects
