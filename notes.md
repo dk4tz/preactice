@@ -294,3 +294,26 @@
         -- Full-stack capabilities: makes it easy for us to write back-end code
             * Easily add server-side code to Next/React apps
             * Storing data, getting data, and authentication can be added to React projects
+    - Page Pre-Rendering
+        -- If a page requires a fetch() call in a useEffect() to get the data that populates the screen,Next.js will, out of the box, return the empty page first and then "hydrate" it with the data after the fetch
+            * Not good for SEO or performance
+        -- To address this, you can pre-render pages in two ways:
+            * Static generation:
+                ** By default, Next does not pre-render pages on the fly... (e.g. API data updates)
+                ** you can export the reserved function "getStaticProps(context)" to use async calls on the server side, BEFORE the web page loads for the first time
+                ** It DOES pre-render content when you build your site for production. BUT if your data changes on the backend (e.g. API), you will need to re-build the front-end, or it will show outdated data
+                ** You can address this somewhat by adding the "revalidate: #" key-value pair to "getStaticProps()" return object.
+                    @ revalidate = re-generate the prerendered site at some frequency
+                    @ # = the number of seconds between re-generations
+                ** You must also add the export "getStaticPaths()" that returns an object with a "paths" array that describes all possible query parameter key-value pairs for dynamic pages (params), as well as handle the possibility for a value that does not have a key (fallback)
+                    @ E.g. return { paths: [{ params: { meetupId: 'm1' } }], fallback: false };
+                    @ fallback: false, means we'll throw an error if the path doesn't exist. true means we'll try to define it at the time of the request.
+            * Server-side rendering:
+                ** This is what you use if you want to re-generate the page on every new request
+                ** You would export the "getServerSideProps(context)" function
+                    @ Difference from "getStaticProps()" = it will not run during the build process, but rather always on the server after deployment
+                ** Only the right choice if:
+                    @ Your data isn't changing multiple times every second
+                    @ You don't need access to the 'context' object to render the page (e.g. authentication)
+                    @ getStaticProps() is faster --> esp. when you push files to a CDN
+            * NOTE: code run in getStaticProps() or getServerSideProps() is not exposed to the client!! It's run during build time or on server at the time of the request
