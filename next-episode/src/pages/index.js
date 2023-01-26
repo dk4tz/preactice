@@ -1,9 +1,21 @@
 import React from 'react';
+import Head from 'next/head';
 import MeetupList from '@/components/meetups/MeetupList';
 import { connectToMongoDb } from '@/utils/database';
 
 const HomePage = (props) => {
-  return <MeetupList meetups={props.meetups} />;
+  return (
+    <>
+      <Head>
+        <title>React Meetups</title>
+        <meta
+          name='description'
+          content='i love meeting up with people who are different'
+        />
+      </Head>
+      <MeetupList meetups={props.meetups} />
+    </>
+  );
 };
 
 export default HomePage;
@@ -30,24 +42,6 @@ export const getStaticProps = async () => {
     },
   };
 };
-
-// Utils
-
-// export const connectToMongoDb = async (uri) => {
-//   let mongoClient;
-
-//   try {
-//     mongoClient = new MongoClient(uri);
-//     console.log('Connecting to MongoDB Atlas cluster...');
-//     await mongoClient.connect();
-//     console.log('Successfully connected to MongoDB Atlas!');
-
-//     return mongoClient;
-//   } catch (error) {
-//     console.error('Connection to MongoDB Atlas failed!', error);
-//     process.exit();
-//   }
-// };
 
 // export const getServerSideProps = async (context) => {
 //   const request = context.req;

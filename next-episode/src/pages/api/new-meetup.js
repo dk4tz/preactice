@@ -1,6 +1,6 @@
 // domain.com/api/new-meetup
 import { MongoClient } from 'mongodb';
-import { connectToMongoDb } from '..';
+import { connectToMongoDb } from '@/utils/database';
 
 const handler = async (req, res) => {
   switch (req.method) {
